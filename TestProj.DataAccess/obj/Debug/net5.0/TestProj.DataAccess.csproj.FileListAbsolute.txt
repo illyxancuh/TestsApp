@@ -1,0 +1,15 @@
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\bin\Debug\net5.0\snappy32.dll
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\bin\Debug\net5.0\snappy64.dll
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\bin\Debug\net5.0\libzstd.dll
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\bin\Debug\net5.0\TestProj.DataAccess.deps.json
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\bin\Debug\net5.0\TestProj.DataAccess.dll
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\bin\Debug\net5.0\ref\TestProj.DataAccess.dll
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\bin\Debug\net5.0\TestProj.DataAccess.pdb
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\obj\Debug\net5.0\TestProj.DataAccess.csprojAssemblyReference.cache
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\obj\Debug\net5.0\TestProj.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\obj\Debug\net5.0\TestProj.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\obj\Debug\net5.0\TestProj.DataAccess.AssemblyInfo.cs
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\obj\Debug\net5.0\TestProj.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\obj\Debug\net5.0\TestProj.DataAccess.dll
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\obj\Debug\net5.0\ref\TestProj.DataAccess.dll
+C:\Users\Expert\source\repos\TestProj\TestProj.DataAccess\obj\Debug\net5.0\TestProj.DataAccess.pdb
