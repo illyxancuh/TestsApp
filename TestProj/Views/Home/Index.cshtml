@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<TestProj.Models.TestSummaryModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,15 +8,39 @@
 
 </div>
 <div>
-    <div class="test">
-        <h2>Test_name</h2>
-        <button>Start_test</button>
+
+    <h3>Hello, @User.Identity.Name!</h3>
+    <hr />
+
+    <div>
+
+        @if (Model != null && Model.Any())
+        {
+            @foreach (TestSummaryModel testSummary in Model)
+            {
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@testSummary.ImageUrl" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@testSummary.Name</h5>
+                        <a href="tests/@testSummary.Id" class="btn btn-primary">Start</a>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="alert alert-info" role="alert">
+                You have no tests yet.
+            </div>
+        }
+
     </div>
+
 </div>
 
 <style>
-    h2{
-        font-size:larger;
+    h2 {
+        font-size: larger;
     }
 
     .test {

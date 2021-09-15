@@ -380,3 +380,4 @@ C:\Users\Expert\source\repos\TestProj\TestProj\bin\Debug\net5.0\tr\Microsoft.Cod
 C:\Users\Expert\source\repos\TestProj\TestProj\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\Expert\source\repos\TestProj\TestProj\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\Expert\source\repos\TestProj\TestProj\obj\Debug\net5.0\TestProj.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Expert\source\repos\TestProj\TestProj\obj\Debug\net5.0\Razor\Views\Tests\TestSummary.cshtml.g.cs

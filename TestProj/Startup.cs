@@ -24,8 +24,11 @@ namespace TestProj
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpContextAccessor();
+
             services.AddScoped<DatabaseContext>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ITestsService, TestsService>();
+
             services.AddAutoMapper((config) =>
             {
                 config.AddMaps(typeof(Mapping.AuthProfile).Assembly,

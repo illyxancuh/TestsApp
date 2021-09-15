@@ -1,17 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using TestProj.DataAccess.Attributes;
 
 namespace TestProj.DataAccess.Entities
 {
-    public class Test
+    [CollectionName("Tests")]
+    public class Test : MongoEntityBase
     {
         public string Name { get; set; }
         
         public string Description { get; set; }
 
+        public string ImageUrl { get; set; }
+
         public ICollection<Question> Questions { get; set; }
+
+        public Test()
+        {
+            Questions = new List<Question>();
+        }
     }
 }

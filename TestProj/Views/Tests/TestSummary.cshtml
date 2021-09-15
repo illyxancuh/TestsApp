@@ -1,0 +1,12 @@
+﻿@model TestProj.Models.TestSummaryModel
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="@Model.ImageUrl" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text"><b>Desciption:</b> @Model.Description</p>
+        <p class="card-text"><b>Questions: </b> @Model.QuestionsCount</p>
+        <p class="card-text"><input type="checkbox" /> I agree to start</p>
+        <button class="btn btn-primary">Proceed</button>
+    </div>
+</div>

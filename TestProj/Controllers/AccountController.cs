@@ -34,7 +34,7 @@ namespace TestProj.Controllers
                 AuthResultDTO result = await _authService.RegisterUser(userRegisterDTO);
                 if (result.Success)
                 {
-                    return Content("Registered");// ЗАГЛУШКА СУКА ТУТ НЕ ЗАБУДЬ
+                    return RedirectToAction("Index", "Home");
                 }
                 foreach (string error in result.Errors)
                 {
@@ -60,7 +60,7 @@ namespace TestProj.Controllers
                 AuthResultDTO result = await _authService.LoginUser(userLoginDTO);
                 if (result.Success)
                 {
-                    return Content("Logined");// ЗАГЛУШКА СУКА ТУТ НЕ ЗАБУДЬ
+                    return RedirectToAction("Index", "Home");
                 }
                 foreach (string error in result.Errors)
                 {
