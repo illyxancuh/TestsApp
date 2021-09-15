@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using TestProj.Application.Services;
 using TestProj.Application.Services.Contracts;
 using TestProj.DataAccess;
+using Microsoft.AspNetCore.Razor.Runtime;
 
 namespace TestProj
 {
@@ -35,7 +36,8 @@ namespace TestProj
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
-            services.AddControllersWithViews();
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,24 @@
+﻿@model TestProj.Models.UserRegisterModel
+
+<form method="post" asp-action="Register" asp-controller="Account">
+    <div style="width: 300px;">
+        <div class="form-elem">
+            <label for="Login" >Login:</label>
+            <input type="text" id="Login" autocomplete="off" asp-for="@Model.Login"/>
+        </div>
+        <div class="form-elem">
+            <label for="Password" >Password:</label>
+            <input type="password" id="Password" autocomplete="off" asp-for="@Model.Password"/>
+        </div>
+    </div>
+    <input type="submit" id="create" value="SignUp" />
+</form>
+@Html.ValidationSummary(false)
+
+<style>
+    .form-elem {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+    }
+</style>

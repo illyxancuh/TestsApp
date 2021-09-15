@@ -46,7 +46,7 @@ namespace TestProj.Application.Services
         {
             var existingUser = await _databaseContext.GetFirst<User>(user => user.Login == userRegisterDTO.Login);
 
-            if (existingUser == null)
+            if (existingUser != null)
             {
                 return new AuthResultDTO
                 {

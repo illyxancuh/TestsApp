@@ -38,7 +38,7 @@ namespace TestProj.Controllers
                 }
                 foreach (string error in result.Errors)
                 {
-                    ModelState.AddModelError(null, error);
+                    ModelState.AddModelError(string.Empty, error);
                 }
             }
             return View(userRegisterModel);
@@ -64,7 +64,7 @@ namespace TestProj.Controllers
                 }
                 foreach (string error in result.Errors)
                 {
-                    ModelState.AddModelError(null, error);
+                    ModelState.AddModelError(string.Empty, error);
                 }
             }
             return View(userLoginModel);
@@ -80,7 +80,7 @@ namespace TestProj.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return Content($"Hello, {(User.Identity.IsAuthenticated ? User.Identity.Name : "guest")}!");
         }
     }
 }
