@@ -1,0 +1,16 @@
+﻿@model TestProj.Models.TestPassedModel
+
+<h2>Test '@Model.TestSummary.Name' finished on @Model.CompletionTime.ToString().</h2>
+<img src="@Model.TestSummary.ImageUrl" style="border: 1px solid black; max-width: 256px; max-height: 256px;" alt="Test cover image"/>
+<h3><b>Your result:</b> @(Model.Score.ToString("N2"))%</h3>
+
+@if(@Model.IsPassed)
+{
+	<h3 style="color: green;">PASSED!</h3>
+}
+else
+{
+	<h3 style="color: darkred;">Try again.</h3>
+}
+
+<a href="/home" class="btn btn-primary" role="button" aria-disabled="true">Back</a>

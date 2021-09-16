@@ -25,9 +25,16 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
-                    <a style="margin-right: 2px;" asp-area="" asp-controller="Account" asp-action="Login">SignIn</a>
-                    |
-                    <a style="margin-left: 2px;" asp-area="" asp-controller="Account" asp-action="Register">SignUp</a>
+                    @if(User.Identity.IsAuthenticated)
+                    {
+                        <a style="margin-right: 2px;" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                    }
+                    else
+                    {
+                        <a style="margin-right: 2px;" asp-area="" asp-controller="Account" asp-action="Login">Sign In</a>
+                        @:|
+                        <a style="margin-left: 2px;" asp-area="" asp-controller="Account" asp-action="Register">Sign Up</a>
+                    }
                 </div>
             </div>
         </nav>

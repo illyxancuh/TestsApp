@@ -22,9 +22,10 @@
                     <img class="card-img-top" src="@testSummary.ImageUrl" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">@testSummary.Name</h5>
-                        <a href="tests/@testSummary.Id" class="btn btn-primary">Start</a>
+                        <a href="tests/@(testSummary.Id)/summary" class="btn btn-primary">Start</a>
                     </div>
                 </div>
+                <br />
             }
         }
         else

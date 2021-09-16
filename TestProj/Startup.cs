@@ -7,7 +7,8 @@ using Microsoft.Extensions.Hosting;
 using TestProj.Application.Services;
 using TestProj.Application.Services.Contracts;
 using TestProj.DataAccess;
-using Microsoft.AspNetCore.Razor.Runtime;
+using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace TestProj
 {
@@ -23,9 +24,17 @@ namespace TestProj
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 25));
+
             services.AddHttpContextAccessor();
 
-            services.AddScoped<DatabaseContext>();
+            services.AddDbContext<DatabaseContext>(
+                dbContextOptions =>
+                {
+                    dbContextOptions.UseMySql(Configuration.GetConnectionString("MySqlConnection"), serverVersion)
+                                    .EnableSensitiveDataLogging();
+                });
+
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ITestsService, TestsService>();
 

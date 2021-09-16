@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TestProj.DataAccess.Entities
 {
-    public class Question
+    public class Question : EntityBase
     {
-        public string QuestionText { get; set; }
+        public int TestId { get; set; }
 
-        public ICollection<Answer> Answers { get; set; }
+        public string QuestionText { get; set; }
 
         public QuestionType Type { get; set; }
 
         public int Score { get; set; }
+
+        public int Position { get; set; }
+
+        public ICollection<Answer> Answers { get; set; }
+
+        public Test Test { get; set; }
     }
 }

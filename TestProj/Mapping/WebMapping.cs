@@ -9,6 +9,16 @@ namespace TestProj.Mapping
         public WebMapping()
         {
             CreateMap<TestSummaryDTO, TestSummaryModel>();
+
+            CreateMap<QuestionTypeDTO, QuestionTypeModel>();
+
+            CreateMap<AnswerDTO, AnswerModel>();
+
+            CreateMap<QuestionDTO, QuestionModel>();
+
+            CreateMap<QuestionItemDTO, QuestionItemModel>();
+
+            CreateMap<UserTestResultDTO, TestPassedModel>();
         }
     }
 }

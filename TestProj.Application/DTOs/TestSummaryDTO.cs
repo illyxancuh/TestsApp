@@ -7,5 +7,6 @@
         public string Description { get; set; }
         public int QuestionsCount { get; set; }
         public string ImageUrl { get; set; }
+        public int PercentageToPass { get; set; }
     }
 }

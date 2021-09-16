@@ -1,12 +1,59 @@
 ﻿@model TestProj.Models.TestSummaryModel
 
+<div id="loader" style="display: none;">
+    <h3>Loading test...</h3>
+</div>
 <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="@Model.ImageUrl" alt="Card image cap">
     <div class="card-body">
         <h5 class="card-title">@Model.Name</h5>
         <p class="card-text"><b>Desciption:</b> @Model.Description</p>
         <p class="card-text"><b>Questions: </b> @Model.QuestionsCount</p>
-        <p class="card-text"><input type="checkbox" /> I agree to start</p>
-        <button class="btn btn-primary">Proceed</button>
+        <p class="card-text"><b>Pass percentage</b> @(Model.PercentageToPass)%</p>
+        <p class="card-text"><input type="checkbox" id="proceed" /> I agree to start</p>
+        <button type="button" onclick="submitAnswer()" id="sendForm" class="btn btn-primary">Proceed</button>
     </div>
 </div>
+
+@section scripts 
+{
+<script>
+
+    let testId = @Model.Id;
+    let proceed = document.getElementById("proceed");
+    let submit = document.getElementById("sendForm");
+    let loader = document.getElementById("loader");
+
+    function submitAnswer() {
+
+        if(proceed.checked) {
+
+        submit.disabled = true;
+        loader.style.display = 'block'
+
+        fetch(`/tests/${testId}/start`, {
+            method: 'POST',
+            body: null,
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          .then((response) => {
+
+              if(response.ok)
+                return response.json();
+
+              alert("Error occured :(")
+              console.log(error);
+          })
+          .then((data) => {
+              window.location.replace(`/questions/${data.questionId}`);
+          });
+        }
+        else
+        {
+            alert("You should click 'I agree to start' first!");
+        }
+    }
+</script>
+}

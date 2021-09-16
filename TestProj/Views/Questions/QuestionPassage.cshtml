@@ -1,0 +1,105 @@
+﻿@model TestProj.Models.QuestionItemModel
+@{
+	int count = 0;
+}
+
+<div>
+	<h3>Question @Model.CurrentNumber/@Model.TotalCount</h3>
+</div>
+<hr />
+
+<div id="loader" style="display: none;">
+    <h3>Sending answers...</h3>
+</div>
+
+<form id="questionForm">
+
+	<h2>@Model.Question.QuestionText</h2>
+
+	@if(Model.Question.Type == QuestionTypeModel.One)
+	{
+		@foreach(AnswerModel answer in Model.Question.Answers)
+		{
+			<div class="form-check">
+			  <input class="form-check-input" type="radio" id="radio-@count" name="radiobtn" value="@answer.Id">
+			  <label class="form-check-label" for="radio-@(count++)">
+				@answer.AnswerText
+			  </label>
+			</div>
+		}
+	}
+	else
+	{
+		@foreach(AnswerModel answer in Model.Question.Answers)
+		{
+			<div class="form-check">
+			  <input class="form-check-input" type="checkbox" value="@answer.Id" id="check-@count">
+			  <label class="form-check-label" for="check-@(count++)">
+				@answer.AnswerText
+			  </label>
+			</div>
+		}
+	}
+
+  <button type="button" onclick="submitAnswer()" id="sendForm" class="btn btn-primary">Next</button>
+</form>
+
+@section scripts
+{
+<script>
+
+    let questionId = @Model.Question.Id;
+    let submit = document.getElementById("sendForm");
+    let loader = document.getElementById("loader");
+	let questionType = '@(Model.Question.Type.ToString())';
+
+    function submitAnswer() {
+
+		submit.disabled = true;
+        loader.style.display = 'block'
+
+		let answers = [];
+
+		if(questionType == 'One')
+		{
+			let answer = document.querySelector('input[name="radiobtn"]:checked').value;
+			answers.push(answer);
+		}
+		else if(questionType == 'Multiple')
+		{
+			let checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+			for (var i = 0; i < checkboxes.length; i++) {
+			  answers.push(checkboxes[i].value)
+			}
+		}
+
+        fetch(`/questions/${questionId}/submit`, {
+            method: 'POST',
+            body: JSON.stringify(answers),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          .then((response) => {
+
+              if(response.ok)
+                return response.json();
+
+              alert("Error occured :(")
+              console.log(error);
+          })
+          .then((data) => {
+
+			  if(data.sumbitResult.testFinished)
+			  {
+				  window.location.replace(`/tests/results/${data.sumbitResult.testResultId}`);
+			  }
+			  else
+			  {
+				  window.location.replace(`/questions/${data.sumbitResult.nextQuestionId}`);
+			  }
+          });
+    }
+</script>
+}

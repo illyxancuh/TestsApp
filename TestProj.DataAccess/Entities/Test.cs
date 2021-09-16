@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using TestProj.DataAccess.Attributes;
 
 namespace TestProj.DataAccess.Entities
 {
-    [CollectionName("Tests")]
-    public class Test : MongoEntityBase
+    public class Test : EntityBase
     {
         public string Name { get; set; }
         
@@ -13,6 +11,8 @@ namespace TestProj.DataAccess.Entities
         public string ImageUrl { get; set; }
 
         public ICollection<Question> Questions { get; set; }
+
+        public int PercentageToPass { get; set; }
 
         public Test()
         {
